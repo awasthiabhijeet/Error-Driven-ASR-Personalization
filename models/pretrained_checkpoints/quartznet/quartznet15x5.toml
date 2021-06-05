@@ -1,0 +1,232 @@
+model = "QuartzNet"
+
+[input]
+normalize = "per_feature"
+sample_rate = 16000
+window_size = 0.02
+window_stride = 0.01
+window = "hann"
+features = 64
+n_fft = 512
+frame_splicing = 1
+dither = 0.00001
+feat_type = "logfbank"
+normalize_transcripts = true
+trim_silence = true
+pad_to = 16
+max_duration = 16.7
+speed_perturbation = false
+stft_conv = true
+
+
+cutout_rect_regions = 0
+cutout_rect_time = 60
+cutout_rect_freq = 25
+
+cutout_x_regions = 0
+cutout_y_regions = 0
+cutout_x_width = 6
+cutout_y_width = 6
+
+
+[input_eval]
+normalize = "per_feature"
+sample_rate = 16000
+window_size = 0.02
+window_stride = 0.01
+window = "hann"
+features = 64
+n_fft = 512
+frame_splicing = 1
+dither = 0.00001
+feat_type = "logfbank"
+normalize_transcripts = true
+trim_silence = true
+pad_to = 16
+stft_conv = true
+
+[encoder]
+activation = "relu"
+convmask = true
+
+[[jasper]]
+filters = 256
+repeat = 1
+kernel = [33]
+stride = [2]
+dilation = [1]
+dropout = 0.0
+residual = false
+separable = true
+
+[[jasper]]
+filters = 256
+repeat = 5
+kernel = [33]
+stride = [1]
+dilation = [1]
+dropout = 0.0
+residual = true
+separable = true
+
+[[jasper]]
+filters = 256
+repeat = 5
+kernel = [33]
+stride = [1]
+dilation = [1]
+dropout = 0.0
+residual = true
+separable = true
+
+[[jasper]]
+filters = 256
+repeat = 5
+kernel = [33]
+stride = [1]
+dilation = [1]
+dropout = 0.0
+residual = true
+separable = true
+
+[[jasper]]
+filters = 256
+repeat = 5
+kernel = [39]
+stride = [1]
+dilation = [1]
+dropout = 0.0
+residual = true
+separable = true
+
+[[jasper]]
+filters = 256
+repeat = 5
+kernel = [39]
+stride = [1]
+dilation = [1]
+dropout = 0.0
+residual = true
+separable = true
+
+[[jasper]]
+filters = 256
+repeat = 5
+kernel = [39]
+stride = [1]
+dilation = [1]
+dropout = 0.0
+residual = true
+separable = true
+
+[[jasper]]
+filters = 512
+repeat = 5
+kernel = [51]
+stride = [1]
+dilation = [1]
+dropout = 0.0
+residual = true
+separable = true
+
+[[jasper]]
+filters = 512
+repeat = 5
+kernel = [51]
+stride = [1]
+dilation = [1]
+dropout = 0.0
+residual = true
+separable = true
+
+[[jasper]]
+filters = 512
+repeat = 5
+kernel = [51]
+stride = [1]
+dilation = [1]
+dropout = 0.0
+residual = true
+separable = true
+
+[[jasper]]
+filters = 512
+repeat = 5
+kernel = [63]
+stride = [1]
+dilation = [1]
+dropout = 0.0
+residual = true
+separable = true
+
+[[jasper]]
+filters = 512
+repeat = 5
+kernel = [63]
+stride = [1]
+dilation = [1]
+dropout = 0.0
+residual = true
+separable = true
+
+[[jasper]]
+filters = 512
+repeat = 5
+kernel = [63]
+stride = [1]
+dilation = [1]
+dropout = 0.0
+residual = true
+separable = true
+
+[[jasper]]
+filters = 512
+repeat = 5
+kernel = [75]
+stride = [1]
+dilation = [1]
+dropout = 0.0
+residual = true
+separable = true
+
+[[jasper]]
+filters = 512
+repeat = 5
+kernel = [75]
+stride = [1]
+dilation = [1]
+dropout = 0.0
+residual = true
+separable = true
+
+[[jasper]]
+filters = 512
+repeat = 5
+kernel = [75]
+stride = [1]
+dilation = [1]
+dropout = 0.0
+residual = true
+separable = true
+
+[[jasper]]
+filters = 512
+repeat = 1
+kernel = [87]
+stride = [1]
+dilation = [2]
+dropout = 0.0
+residual = false
+separable = true
+
+[[jasper]]
+filters = 1024
+repeat = 1
+kernel = [1]
+stride = [1]
+dilation = [1]
+dropout = 0.0
+residual = false
+
+[labels]
+labels = [" ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "'"]
